@@ -1,0 +1,329 @@
+---
+title: "Vorlesung: Forschungsmethoden"
+subtitle: "Sitzung 13: Unterschiede in der zentralen Tendenz zweier ordinaler oder intervallskalierter Variablen"
+author: "Andre Epp & Samuel Merk"
+date: "2019/01/15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      navigation:
+        scroll: false
+        click: false
+        touch: true
+editor_options: 
+  chunk_output_type: console
+---
+class: center,  middle, hide_logo
+
+
+<head>
+<script src="https://kit.fontawesome.com/994a28441d.js" crossorigin="anonymous"></script>
+<script src="//cdn.wordart.com/wordart.min.js" async defer></script>
+</head>
+
+<!--<div class="my-footer"><span>Folien CC-BY verfügbar unter https://atelier-phka-merk-2020.netlify.app</span></div> 
+
+
+<style>
+.remark-slide-number {
+  font-size: 10pt;
+  margin-bottom: -11.6px;
+  margin-right: 10px;
+  color: red; /* white */
+  opacity: 0; /* default: 0.5 */
+}
+</style>
+--> 
+
+```{r xaringan-themer, echo=F, warning=FALSE}
+library(xaringanthemer)
+library(fontawesome)
+library(xaringanExtra)
+
+extra_css <- list(
+  ".cit"  = list("font-size" = "70%",
+                 "color" = "#6AEE3E90"),
+  ".em05" = list("font-size" ="0.5em"),
+  ".em06" = list("font-size" ="0.6em"),
+  ".em07" = list("font-size" ="0.7em"),
+  ".em08" = list("font-size" ="0.8em"),
+  ".em09" = list("font-size" ="0.9em"),
+  ".em11" = list("font-size" ="1.1em"),
+  ".em12" = list("font-size" ="1.2em"),
+  ".em13" = list("font-size" ="1.3em"),
+  ".em14" = list("font-size" ="1.4em"),
+  ".em15" = list("font-size" ="1.5em"),
+  ".em16" = list("font-size" ="1.6em"),
+  ".em17" = list("font-size" ="1.7em"),
+  ".em18" = list("font-size" ="1.8em"),
+  ".em19" = list("font-size" ="1.9em"),
+  ".bold" = list("font-weight" = "bold"),
+  ".large" = list("font-size" = "160%"),
+  ".vertmiddle" = list("vertical-align" ="middle"),
+  #".lh15" = list("line-height" =  "1.5"),
+  ".li" = list("line-height" =  "1.5",
+               "font-size" = "160%",
+               "font-weight" = "bold"),
+  ".phgreen" = list("color" = "#50B32E"),
+  ".phgreenlight" = list("color" = "#62DC3A"),
+  ".pgl" = list("color" = "#62DC3A"),
+ # ".my-footer" = list("background-color" = "#1a1917",
+ #                     "position" = "absolute",
+ #                     "bottom" = "0px",
+ #                     "left" = "0px",
+ #                     "height" = "20px",
+ #                     "width" = "100%"),
+  ".my-footer span" = list("font-size" = "10pt", 
+                           "color" = "#F7F8FA",
+                           "position" = "absolute",
+                           "left" = "15px",
+                           "bottom" = "2px"),
+  ".remark-slide-number" = list("bottom" = "-18px"),
+  ".li" = list("line-height" =  "4"),
+  ".scroll-box-18" = list("height" ="18em",
+                           "overflow-y" = "scroll"),
+  ".scroll-box-23" = list("height" ="23em",
+                           "overflow-y" = "scroll"),
+  ".hscroll-box-30" = list("width" ="23em",
+                           "overflow-x" = "scroll"))
+
+style_mono_accent(
+  background_color = "#000000",
+  background_image = "https://live.staticflickr.com/65535/50973602108_8fce3f8f28_k.jpg",
+  text_color = "#ffffff",
+  base_color           = "#ffffff",
+  header_font_google   = google_font("Roboto", "700"),
+  text_font_google     = google_font("Roboto", "500"),
+  code_font_google     = google_font("Droid Mono"),
+  extra_css = extra_css,
+  inverse_background_color = "#ffffff",
+  inverse_text_color = "#000000",
+  link_color = "#6AEE3E"
+)
+
+use_logo(
+  image_url = "https://svgur.com/i/X57.svg",#"https://live.staticflickr.com/65535/50974533397_9ac99f9a48_o.png",
+  width = "180px",
+  position = css_position(top = "1.5em", right = "1.5em")
+)
+
+use_editable(expires = 1)
+```
+
+# .white[Vorlesung: Forschungsmethoden]
+
+
+.em14[<i class="fas fa-microscope fa-5x"></i>]
+
+### .white[Sitzung 13: Unterschiede in der zentralen Tendenz zweier ordinaler oder intervallskalierter Variablen]
+
+<img style="vertical-align:middle" src="https://live.staticflickr.com/65535/51100620932_e7ccc92abd_o.png", width="70px">  &nbsp;&nbsp;&nbsp;&nbsp;
+<img style="vertical-align:middle" src="https://imagizer.imageshack.com/img922/8876/bipedm.png", width="70px">
+
+.em14[.white[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;André Epp | Samuel Merk]]  
+
+
+---
+# Überblick
+.em13[
+* Unterschiede in der zentralen Tendenz 
+   * zweier intervallskalierter Variablen
+      * beschreiben (Effektstärke Cohen's $U_3$ und $d$) und
+      * testen (t-Test, Welch-Test: p-Wert und Bayes Faktor)
+   * zweier ordinaler Variablen
+      * beschreiben (Effektstärke Vargha & Delaney's $A$) und
+      * testen (Mann-Whitney-U-Test: p-Wert und Bayes Faktor)
+]
+---
+class: center, middle
+# Unterschiede in der zentralen Tendenz zweier intervallskalierter Variablen beschreiben und testen
+
+---
+### Einführendes Beispiel I: _Unterschied von 1.5 NP_
+
+--
+
+```{r, echo = F, fig.height=2.5, fig.width=10, fig.align='center', warning = F, message = F, dev = "svglite"}
+library(hrbrthemes)
+library(tidyverse)
+g8g9_deutsch <- tibble(G8 = c(2,6,9, 12, 15),
+                       G9 = c(2,6,10.5, 12, 15))%>%
+  gather(Gruppe, Deutschnote)
+ggplot(g8g9_deutsch, aes(Gruppe, Deutschnote)) + 
+  geom_boxplot(fill = "darkgrey", color = "white") + 
+  ylim(c(0,15)) +
+  coord_flip() +
+  theme_modern_rc()
+```
+
+--
+
+```{r, echo = F, fig.height=2.5, fig.width=10, fig.align='center', warning = F, message = F, dev = "svglite"}
+g8g9_deutsch <- tibble(G8 = c(6,8.25,9, 9.75, 12),
+                       G9 = c(8,9.75,10.5, 11.15, 13))%>%
+  gather(Gruppe, Matheschnote)
+ggplot(g8g9_deutsch, aes(Gruppe, Matheschnote)) + 
+  geom_boxplot(fill = "darkgrey", color = "white") + 
+  ylim(c(0,15)) +
+  coord_flip() +
+  theme_modern_rc()
+```
+
+---
+class: hide_logo
+### Einführendes Beispiel II: _Negativer Effekt digital/analog Substitution_
+
+
+```{r, echo = F, message=FALSE, warning=FALSE, out.width="95%", dev = "svglite", fig.height=4}
+library(tidyverse)
+library(ggdist)
+library(hrbrthemes)
+set.seed(725)  #725 --> d = .26
+
+data_d02 <- 
+  tibble(digital = round(rnorm(100, 27.8, 10), 0),
+          analog =  round(rnorm(100, 30, 10), 0)) %>% 
+         gather(Medium, `Richtige Antworten`)
+
+#effsize::cohen.d(`Richtige Antworten` ~ Medium, data = data_d02)
+#qnorm(effsize::VD.A(`Richtige Antworten` ~ Medium, data = data_d02)$estimate)*sqrt(2)
+
+ggplot(data_d02,
+       aes(`Richtige Antworten`, Medium, 
+           fill = stat(x > data_d02 %>% 
+                   filter(Medium == "analog") %>% 
+                   pull(`Richtige Antworten`) %>% 
+                   mean()))) + 
+  stat_slab(quantiles = 100, alpha = .5) +
+  stat_dots(aes(color = stat(x > data_d02 %>% 
+                   filter(Medium == "analog") %>% 
+                   pull(`Richtige Antworten`) %>% 
+                   mean()))) +
+  stat_pointinterval(color = "white", point_interval = mean_qi) +
+  # geom_vline(aes(`Richtige Antworten`, Medium, 
+  #               xintercept = data_d02 %>% 
+  #                 filter(Medium == "analog") %>% 
+  #                 pull(`Richtige Antworten`) %>% 
+  #                 mean()), color = "white") + 
+  scale_fill_manual(values = c("#50B32E", "#b0e69e")) + 
+  scale_color_manual(values = c("#50B32E", "#b0e69e")) + 
+  #annotate("text", x = 23, y = 2.3, label = "58%", color = "white", family="sans", size = 5) +
+  theme_modern_rc()+
+  theme(legend.position = "none") #+
+  #coord_cartesian(xlim=c(0,75))
+
+
+
+```
+
+---
+class: hide_logo
+### Effektstärken für Unterschiede in der zentralen Tendenz zweier intervallskalierter Variablen
+#### Cohen's $U_3$
+* Cohen schlug (1988) vor die Mittelwertdifferenz zweier normalverteilter Variablen X,Y danach zu bewerten __welcher Anteil der einen Variable, den Mittelwert der anderen übersteigt.__
+* $U_3(XY) = \frac{\#(x_i > \bar{y})}{\#X}$
+* Cohen's $U_3$ kann Werte zwischen 0 und 1 annehmen. Je weiter $U_3$ von 0.5 entfernt ist desto stärker ist der Effekt. 
+* $U_3 = 0.5$ entspricht dem Nulleffekt (kein Unterschied in der zentralen Tendenz)
+* Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $U_3=.579$, $U_3=.691$ und $U_3=.758$.
+
+--
+
+#### Cohen's $d$
+* Viel bekannter als $U_3$ ist die Effektstärke $d$. Sie relativiert den Abstand der Mittelwerte von $X$ und $Y$ an deren gemittelte (»gepoolte«) Standardabweichung.
+* $d(XY) = \frac{\bar{x}-\bar{y}}{\sqrt{\frac{s_x^2 + s_y^2}{2}}}$
+* Cohen's $d$ kann Werte zwischen $-\infty$ und $+\infty$ annehmen. Je weiter $d$ von 0 entfernt ist desto stärker ist der Effekt. 
+* $d = 0$ entspricht dem Nulleffekt (kein Unterschied in der zentralen Tendenz)
+* Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $d=.2$, $d=.5$ und $d=.7$.
+
+
+---
+## Dynamische Visualisierung Cohen's d
+[<img src="screenshot_geogebra_cohensd.jpg" width="900">](https://www.geogebra.org/m/tGcX62gq)
+
+<i class="fas fa-external-link-alt" style="color:#62DC3A"></i> &nbsp; https://www.geogebra.org/m/tGcX62gq
+
+---
+class: hide_logo
+### Inferenzstatistiken für Unterschiede in der zentralen <br> Tendenz zweier intervallskalierter Variablen: <br>»t-Tests« und »Welch-Tests«
+
+* p-Werte und Bayes-Faktoren für Cohen's $d$ und $U_3$ können über einen Koeffizienten (»die t-Statistik«) berechnet werden.
+* Dabei wird meistens die $H_0: d = 0$ bzw.  $H_0: U_3 = 0.5$ getestet
+* Unterschieden wird dabei zwischen
+    * unabhängigen Stichproben (z.B. Interventions- und Kontrollgruppe) und
+    * abhängigen Stichproben (z.B. Messwiederholung oder Ehepaare).
+* Bei der Berechnung der t-Statistik wird vorausgesetzt dass 1) beide Variablen einer Normalverteilung mit 2) gleicher Streuung folgen. 
+* Der Welch-Test verzichtet auf die Annahme gleicher Streuung.
+* Die t- und Welch-Tests sind jedoch robust gegen eine Verletzung der Normalverteilungsannahme falls $N > 30$.
+
+
+
+---
+class: hide_logo
+## Effektstärken für Unterschiede in der zentralen Tendenz zweier mind. ordinaler Variablen
+.pull-left[
+### »Ordinales $U_3$«
+
+]
+
+--
+
+.pull-right[
+### Vargha & Delaney's $A$
+]
+
+
+---
+class: hide_logo
+## Effektstärken für Unterschiede in der zentralen Tendenz zweier mind. ordinaler Variablen
+
+* Vargha & Delaney's A ist definiert als $A(X,Y) = \frac{\#(x_i > y_i) + 0.5 \cdot \#(x_i = y_i)}{\#X \cdot \#Y}$ also durch die Anzahl der paarweisen Datenpunktvergleiche die zugunsten von X ausgehen plus die Hälfte derjenigen, die unentschieden ausgehen geteilt durch die Anzahl aller Vergleiche.
+* A hat einen Wertebereich von 0 bis 1. Bei einem Nulleffekt wird $A = 0.5$.
+* Je weiter $A$ von 0.5 entfernt ist, desto stärker ist der Effekt.
+* Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $A=.56$, $A=.64$ und $A=.71$ bzw. $A=.44$, $A=.36$ und $A=.29$.
+
+
+---
+class: hide_logo
+## Dynamische Visualisierung Vargha & Delaney's $A$
+[<img src="screenshot_geogebra_cles.jpg" width="700">](https://www.geogebra.org/m/FUDmaUrt)
+
+<i class="fas fa-external-link-alt" style="color:#62DC3A"></i> &nbsp; https://www.geogebra.org/m/FUDmaUrt
+
+
+---
+## Guessing App
+[<img src="screenshot_guessing_dU3A.jpg" width="980">](https://apps.samuel-merk.de/guessing-d-U3-A/)
+
+<i class="fas fa-external-link-alt" style="color:#62DC3A"></i> &nbsp; https://apps.samuel-merk.de/guessing-d-U3-A/
+
+
+---
+class: hide_logo
+### Inferenzstatistiken für Unterschiede in der zentralen <br> Tendenz zweier ordinaler Variablen: »Wilcoxons Rangsummentest« und der »Mann-Whitney-U-Test«
+
+* p-Werte und Bayes-Faktoren für Vargha und Delaney's $A$ sind ebenfalls verfügbar.
+* Dabei wird meistens die $H_0: A = 0.5$ getestet.
+* Unterschieden wird dabei zwischen
+    * unabhängigen Stichproben (z.B. Interventions- und Kontrollgruppe) und
+    * abhängigen Stichproben (z.B. Messwiederholung oder Ehepaare).
+* Für erstere ist der »Mann-Whitney-U-Test« für zweitere »Wilcoxons Rangsummentest« geeignet.
+* Beide Tests kommen ohne Annahmen bzgl. der Verteilung aus.
+
+
+---
+## Literatur
+van Doorn, J., Ly, A., Marsman, M., & Wagenmakers, E.-J. (2020). Bayesian rank-based hypothesis testing for the rank sum test, the signed rank test, and Spearman’s ρ. _Journal of Applied Statistics, 47_(16), 2984–3006. https://doi.org/10.1080/02664763.2019.1709053  
+Delacre, M., Lakens, D., & Leys, C. (2017). Why Psychologists Should by Default Use Welch’s t-test Instead of Student’s t-test. _International Review of Social Psychology, 30_(1), 92. https://doi.org/10.5334/irsp.82
+
+
+
+
+
+

@@ -1,0 +1,282 @@
+---
+title: "Effektstärken" 
+subtitle: "für Gruppenmittelwertsunterschiede"
+author: "Samuel Merk"
+format: 
+  revealjs:
+    auto-stretch: false
+    controls: true
+    slide-number: false
+    logo: img/PHlogo.svg
+    theme: [dark, css/custom.scss]
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 3
+      buttons: true
+      chalk-effect: 0
+    fullscreen: true
+    pdfexport: true
+bibliography: references.bib
+csl: apa.csl
+---
+<head>
+<script src="//cdn.wordart.com/wordart.min.js" async defer></script>
+</head>
+
+
+## Inhalte dieses Erklärvideos {.center .smaller}
+
+```{r hidden chunk which creates template stuff}
+#| echo: false
+
+## in terminal ########
+# quarto install extension quarto-ext/fontawesome
+# quarto install extension schochastics/academicons
+#
+
+########################
+library(fontawesome)
+library(tidyverse)
+set.seed(848265)
+
+# Change css to lecker PH green
+if(!dir.exists("img"))
+dir.create("img")
+if(!dir.exists("css"))
+dir.create("css")
+fileConn<-file("css/custom.scss")
+writeLines(c("/*-- scss:defaults --*/",
+             "$link-color: #8cd000 !default;",
+             ".imp {color: #8cd000;}",
+             ".em15 {font-size:1.5em;}",
+             ".c {text-align: right !important;}",
+             ".callout-title {background-color: #8cd000 !important;}",
+             "#vcenter {vertical-align: middle;}"),
+           fileConn)
+close(fileConn)
+```
+
+. . .
+
+[{{< fa lightbulb >}}]{.imp} Informationsgehalt von Effektstärken
+
+. . .  
+
+[{{< fa ruler >}}]{.imp} Effektstärken für zwei normalverteilte Variablen (Cohen's $U_1$, $U_3$ und $d$)
+
+. . .
+
+[{{< fa medal >}}]{.imp} Effektstärken für zwei nicht-normalverteilte (z.B. ordinale) Variablen (Cliff's $d$)
+
+
+## <!--Informationsgehalt von Effektstärken--> {.center}
+[{{< fa lightbulp >}} Informationsgehalt von Effektstärken]{.em15 .c .imp}
+
+
+## Informationsgehalt von Effektstärken
+::: {.callout-tip icon=false collapse="false"}
+## {{< fa book-open >}} Zitate aus der Tagespresse
+»Deutsche Mädchen schwächeln beim Problemlösen«  
+»«
+»«  
+:::
+
+
+## <!--Effektstärken für zwei normalverteilte Variablen--> {.center}
+[{{< fa ruler >}} Effektstärken für zwei normalverteilte Variablen]{.em15 .c .imp}
+
+
+## <!--Effektstärken für zwei nicht-normalverteilte (z.B. ordinale) Variablen--> {.center}
+[{{< fa medal >}} Effektstärken für zwei nicht-normalverteilte (z.B. ordinale) Variablen]{.em15 .c .imp}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Einführendes Beispiel I: *Unterschied von 1.5 NP* {.smaller}
+
+. . .
+
+```{r, echo = F, fig.height=2.5, fig.width=10, fig.align='center', warning = F, message = F, dev = "svglite"}
+library(hrbrthemes)
+library(tidyverse)
+g8g9_deutsch <- tibble(G8 = c(2,6,9, 12, 15),
+                       G9 = c(2,6,10.5, 12, 15))%>%
+  gather(Gruppe, Deutschnote)
+ggplot(g8g9_deutsch, aes(Gruppe, Deutschnote)) + 
+  geom_boxplot(fill = "darkgrey", color = "white") + 
+  ylim(c(0,15)) +
+  coord_flip() +
+  theme_modern_rc()
+```
+
+. . .
+
+```{r, echo = F, fig.height=2.5, fig.width=10, fig.align='center', warning = F, message = F, dev = "svglite"}
+g8g9_deutsch <- tibble(G8 = c(6,8.25,9, 9.75, 12),
+                       G9 = c(8,9.75,10.5, 11.15, 13))%>%
+  gather(Gruppe, Matheschnote)
+ggplot(g8g9_deutsch, aes(Gruppe, Matheschnote)) + 
+  geom_boxplot(fill = "darkgrey", color = "white") + 
+  ylim(c(0,15)) +
+  coord_flip() +
+  theme_modern_rc()
+```
+
+------------------------------------------------------------------------
+
+### Einführendes Beispiel II: *Negativer Effekt digital/analog Substitution* {.smaller}
+
+```{r, echo = F, message=FALSE, warning=FALSE, out.width="115%", dev = "svglite", fig.height=6}
+library(tidyverse)
+library(ggdist)
+library(hrbrthemes)
+set.seed(725)  #725 --> d = .26
+
+data_d02 <- 
+  tibble(digital = round(rnorm(100, 27.8, 10), 0),
+          analog =  round(rnorm(100, 30, 10), 0)) %>% 
+         gather(Medium, `Richtige Antworten`)
+
+#effsize::cohen.d(`Richtige Antworten` ~ Medium, data = data_d02)
+#qnorm(effsize::VD.A(`Richtige Antworten` ~ Medium, data = data_d02)$estimate)*sqrt(2)
+
+ggplot(data_d02,
+       aes(`Richtige Antworten`, Medium, 
+           fill = stat(x > data_d02 %>% 
+                   filter(Medium == "analog") %>% 
+                   pull(`Richtige Antworten`) %>% 
+                   mean()))) + 
+  stat_slab(quantiles = 100, alpha = .5) +
+  stat_dots(aes(color = stat(x > data_d02 %>% 
+                   filter(Medium == "analog") %>% 
+                   pull(`Richtige Antworten`) %>% 
+                   mean()))) +
+  stat_pointinterval(color = "white", point_interval = mean_qi) +
+  # geom_vline(aes(`Richtige Antworten`, Medium, 
+  #               xintercept = data_d02 %>% 
+  #                 filter(Medium == "analog") %>% 
+  #                 pull(`Richtige Antworten`) %>% 
+  #                 mean()), color = "white") + 
+  scale_fill_manual(values = c("#50B32E", "#b0e69e")) + 
+  scale_color_manual(values = c("#50B32E", "#b0e69e")) + 
+  #annotate("text", x = 23, y = 2.3, label = "58%", color = "white", family="sans", size = 5) +
+  theme_modern_rc()+
+  theme(legend.position = "none") #+
+  #coord_cartesian(xlim=c(0,75))
+```
+
+------------------------------------------------------------------------
+
+#### Effektstärken für Unterschiede in der zentralen Tendenz zweier intervallskalierter Variablen {.smaller}
+
+::: {style="font-size: 0.5em"}
+### Cohen's $U_3$
+
+-   Cohen schlug (1988) vor die Mittelwertdifferenz zweier normalverteilter Variablen X,Y danach zu bewerten **welcher Anteil der einen Variable, den Mittelwert der anderen übersteigt.**
+-   $U_3(XY) = \frac{\#(x_i > \bar{y})}{\#X}$
+-   Cohen's $U_3$ kann Werte zwischen 0 und 1 annehmen. Je weiter $U_3$ von 0.5 entfernt ist desto stärker ist der Effekt.
+-   $U_3 = 0.5$ entspricht dem Nulleffekt (kein Unterschied in der zentralen Tendenz)
+-   Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $U_3=.579$, $U_3=.691$ und $U_3=.758$.
+
+### Cohen's $d$
+
+-   Viel bekannter als $U_3$ ist die Effektstärke $d$. Sie relativiert den Abstand der Mittelwerte von $X$ und $Y$ an deren gemittelte (»gepoolte«) Standardabweichung.
+-   $d(XY) = \frac{\bar{x}-\bar{y}}{\sqrt{\frac{s_x^2 + s_y^2}{2}}}$
+-   Cohen's $d$ kann Werte zwischen $-\infty$ und $+\infty$ annehmen. Je weiter $d$ von 0 entfernt ist desto stärker ist der Effekt.
+-   $d = 0$ entspricht dem Nulleffekt (kein Unterschied in der zentralen Tendenz)
+-   Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $d=.2$, $d=.5$ und $d=.7$.
+:::
+
+------------------------------------------------------------------------
+
+### Dynamische Visualisierung Cohen's $d$
+
+<br>
+
+[Link](https://www.geogebra.org/m/tGcX62gq){preview-link="true"}
+
+------------------------------------------------------------------------
+
+```{r notes}
+# hier muss noch ein klickbares bild eingefügt werden??
+```
+
+#### Inferenzstatistiken für Unterschiede in der zentralen Tendenz zweier intervallskalierter Variablen: »t-Tests« und »Welch-Tests« {.smaller}
+
+::: {style="font-size: 0.5em"}
+-   p-Werte und Bayes-Faktoren für Cohen's $d$ und $U_3$ können über einen Koeffizienten (»die t-Statistik«) berechnet werden.
+-   Dabei wird meistens die $H_0: d = 0$ bzw. $H_0: U_3 = 0.5$ getestet
+-   Unterschieden wird dabei zwischen
+    -   unabhängigen Stichproben (z.B. Interventions- und Kontrollgruppe) und
+    -   abhängigen Stichproben (z.B. Messwiederholung oder Ehepaare).
+-   Bei der Berechnung der t-Statistik wird vorausgesetzt dass 1) beide Variablen einer Normalverteilung mit 2) gleicher Streuung folgen.
+-   Der Welch-Test verzichtet auf die Annahme gleicher Streuung.
+-   Die t- und Welch-Tests sind jedoch robust gegen eine Verletzung der Normalverteilungsannahme falls $N > 30$.
+:::
+
+------------------------------------------------------------------------
+
+#### Effektstärken für Unterschiede in der zentralen Tendenz zweier mind. ordinaler Variablen {.smaller}
+
+```{r notes2}
+# hier muss ich noch herausfinden, wie ich den Text rechts und links aligne, ohne dafür eine Tabelle zu erstellen (dann habe ich das Problem, dass man nicht eins nach dem anderen auftauchen lassen kann.)
+```
+
+------------------------------------------------------------------------
+
+#### Effektstärken für Unterschiede in der zentralen Tendenz zweier mind. ordinaler Variablen {.smaller}
+
+::: {style="font-size: 0.5em"}
+-   Vargha & Delaney's A ist definiert als $A(X,Y) = \frac{\#(x_i > y_i) + 0.5 \cdot \#(x_i = y_i)}{\#X \cdot \#Y}$ also durch die Anzahl der paarweisen Datenpunktvergleiche die zugunsten von X ausgehen plus die Hälfte derjenigen, die unentschieden ausgehen geteilt durch die Anzahl aller Vergleiche.
+-   A hat einen Wertebereich von 0 bis 1. Bei einem Nulleffekt wird $A = 0.5$.
+-   Je weiter $A$ von 0.5 entfernt ist, desto stärker ist der Effekt.
+-   Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $A=.56$, $A=.64$ und $A=.71$ bzw. $A=.44$, $A=.36$ und $A=.29$.
+:::
+
+------------------------------------------------------------------------
+
+### Dynamische Visualisierung Vargha & Delaney's $A$
+
+<br>
+
+[Link](https://www.geogebra.org/m/FUDmaUrt){preview-link="true"}
+
+->[] Referenzen, damit Bib korrekt
+------------------------------------------------------------------------
+
+### Guessing App
+
+<br>
+
+[Link](https://apps.samuel-merk.de/guessing-d-U3-A/){preview-link="true"}
+
+------------------------------------------------------------------------
+
+#### Inferenzstatistiken für Unterschiede in der zentralen <br> Tendenz zweier ordinaler Variablen: »Wilcoxons Rangsummentest« und der »Mann-Whitney-U-Test« {.smaller}
+
+::: {style="font-size: 0.5em"}
+-   p-Werte und Bayes-Faktoren für Vargha und Delaney's $A$ sind ebenfalls verfügbar.
+-   Dabei wird meistens die $H_0: A = 0.5$ getestet.
+-   Unterschieden wird dabei zwischen
+    -   unabhängigen Stichproben (z.B. Interventions- und Kontrollgruppe) und
+    -   abhängigen Stichproben (z.B. Messwiederholung oder Ehepaare).
+-   Für erstere ist der »Mann-Whitney-U-Test« für zweitere »Wilcoxons Rangsummentest« geeignet.
+-   Beide Tests kommen ohne Annahmen bzgl. der Verteilung aus.
+:::
+
+------------------------------------------------------------------------
+
+## Literatur
+<style>
+div.callout {border-left-color: #8cd000 !important;
+</style>
