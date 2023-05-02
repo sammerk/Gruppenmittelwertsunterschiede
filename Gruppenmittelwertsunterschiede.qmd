@@ -220,10 +220,10 @@ plot1 + plot2 + plot3 +
 ```
 
 ::: {.incremental}
-* $U_1 :=$ Nicht-Überlappung der Häufigkeitsverteilungen
+* $U_1 =$ Nicht-Überlappung der Häufigkeitsverteilungen
 * Voraussetzung: Zwei normalverteile (daher auch intervallskalierte) Variablen
 * $U_1$ nimmt Werte zwischen 0 (Nulleffekt) und 1 (maximaler Effekt) an
-* Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $U_1=.15$, $U_1=.33$ und $U_1=.47$.
+* Cohen's [-@cohen1988] Benchmarks für kleine, mittlere und große Effekte liegen bei $U_1=.15$, $U_1=.33$ und $U_1=.47$.
 :::
 
 
@@ -335,10 +335,10 @@ plot1 + plot2 + plot3 +
 ```
 
 ::: {.incremental}
-* $U_3 :=$ % über dem Mittelwert der anderen Gruppe
+* $U_3 =$ % über dem Mittelwert der anderen Gruppe
 * Voraussetzung: Zwei normalverteile (daher auch intervallskalierte) Variablen
 * $U_3$ nimmt Werte zwischen 0 (maximale Unterlegenheit) und 1 (maximale Überlegenheit) an; ein Nulleffekt liegt bei $U_3 = 0.5$ vor
-* Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $U_3=.54$, $U_3=.69$ und $U_3=.79$.
+* Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $U_3=.54$, $U_3=.69$ und $U_3=.79$
 :::
 
 
@@ -528,7 +528,7 @@ plot1 + plot2 + plot3 +
 
 ::: {.incremental}
 * $d(XY) = \frac{\bar{x}-\bar{y}}{\sqrt{\frac{s_x^2 + s_y^2}{2}}}$ [(Interaktive Visualisierung {{< fa square-up-right >}})](https://www.geogebra.org/m/tGcX62gq){preview-link="true"}
-* Cohen's $d$ kann Werte zwischen $-\infty$ und $+\infty$ annehmen. Je weiter $d$ von 0 entfernt ist desto stärker ist der Effekt; $d = 0$ entspricht dem Nulleffekt 
+* Cohen's $d$ kann Werte zwischen $-\infty$ und $+\infty$ annehmen. Je weiter $d$ von 0 entfernt ist, desto stärker ist der Effekt; $d = 0$ entspricht dem Nulleffekt 
 * Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $d=.2$, $d=.5$ und $d=.8$
 :::
 
@@ -552,7 +552,7 @@ plot1 + plot2 + plot3 +
 
 ::: {.column #vcenter width='50%'}
 
-Die Grundidee von Cliff's d ist jeden Punkt einer Gruppe $x_i$ mit jedem Punkt der anderen Gruppe $y_i$ zu vergleichen und zu entscheiden, ob $\color{#8cd000}{x_i < y_i}$, $x_i = y_i$ oder $\color{#d77d00}{x_i > y_i}$ gilt
+Die Grundidee von Cliff's d ist, jeden Punkt einer Gruppe $x_i$ mit jedem Punkt der anderen Gruppe $y_i$ zu vergleichen und zu entscheiden, ob $\color{#d77d00}{x_i < y_i}$, $x_i = y_i$ oder $\color{#8cd000}{x_i > y_i}$ gilt.
 
 :::
 
@@ -579,13 +579,13 @@ tibble(Placebo = c(1, 2, 2, 3) + 1,
     y = 3,
     xend = 2,
     yend = 4
-  ), color = "#8cd00050") +
+  ), color = "#d77d0050") +
   geom_segment(aes(
     x = 1,
     y = 3,
     xend = 2,
     yend = 2
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
   geom_dotplot(
     color = "#ffffff",
     fill = "#ffffff",
@@ -610,9 +610,9 @@ tibble(Placebo = c(1, 2, 2, 3) + 1,
 ::: {.fragment}
 $$\text{Cliff's } d = \frac{\#\text{Abwärtsvergl.} - \#\text{Aufwärtsvergl.}}{\#\text{Alle Vergl.}}$$
 
-$$= \frac{\color{#d77d00}{\#(x_i > y_i)} - \color{#8cd000}{\#(x_i < y_i})}{\#X \cdot \#Y}$$
+$$= \frac{\color{#8cd000}{\#(x_i > y_i)} - \color{#d77d00}{\#(x_i < y_i})}{\#X \cdot \#Y}$$
 
-$$= \frac{\color{#d77d00}{11} - \color{#8cd000}{1}}{16}$$
+$$= \frac{\color{#8cd000}{11} - \color{#d77d00}{1}}{16}$$
 $$= .625$$ 
 
 :::
@@ -642,73 +642,73 @@ tibble(Placebo = c(1, 2, 2, 3) + 1,
     y = 3,
     xend = 2,
     yend = 4
-  ), color = "#8cd00050") +
+  ), color = "#d77d0050") +
   geom_segment(aes(
     x = 1,
     y = 3,
     xend = 2,
     yend = 2
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
   geom_segment(aes(
     x = 1.05,
     y = 4,
     xend = 2,
     yend = 2
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
     geom_segment(aes(
     x = .95,
     y = 4,
     xend = 2,
     yend = 2
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
   geom_segment(aes(
     x = 1.05,
     y = 4,
     xend = 1.95,
     yend = 3
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
     geom_segment(aes(
     x = .95,
     y = 4,
     xend = 1.95,
     yend = 3
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
   geom_segment(aes(
     x = 1.05,
     y = 4,
     xend = 2.05,
     yend = 3
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
     geom_segment(aes(
     x = .95,
     y = 4,
     xend = 2.05,
     yend = 3
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
   geom_segment(aes(
     x = 1,
     y = 5,
     xend = 2,
     yend = 4
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
   geom_segment(aes(
     x = 1,
     y = 5,
     xend = 1.95,
     yend = 3
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
     geom_segment(aes(
     x = 1,
     y = 5,
     xend = 2.05,
     yend = 3
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
     geom_segment(aes(
     x = 1,
     y = 5,
     xend = 2,
     yend = 2
-  ), color = "#d77d0050") +
+  ), color = "#8cd00050") +
   geom_dotplot(
     color = "#ffffff",
     fill = "#ffffff",
@@ -729,11 +729,11 @@ tibble(Placebo = c(1, 2, 2, 3) + 1,
 ```{r}
 #| label: vis_cliff_function
 #| fig-width: 13
-#| fig-height: 3.5
+#| fig-height: 4.5
 #| fig-format: svg
-#| cache: true
 
 library(bayestestR)
+library(patchwork)
 vis_cliff <- function(plot_raw, rnd, alpha, color) {
 data_rawplot <- 
   layer_data(plot_raw)
@@ -742,7 +742,7 @@ data_expanded <-
   expand_grid(ylinks = data_rawplot |> filter(round(x, 0) == 1) |> pull(y),
               yrechts = data_rawplot |> filter(round(x, 0) == 2) |> pull(y)) |> 
   gather(ort_y, y) |> 
-  left_join(data_rawplot |> select(y, x))
+  left_join(data_rawplot |> dplyr::select(y, x))
 
 data_to_add <- 
   tibble(ylinks = data_expanded |> filter(ort_y == "ylinks") |> pull(y),
@@ -779,9 +779,9 @@ ggplot() +
 set.seed(2505)
 data1 <- 
   tibble(Control = c(1:5, 
-                     round(distribution_beta(22, 2, 3.21)/2, digits = 1)*10),
+                     round(distribution_beta(22, 3.21, 2)/2, digits = 1)*10),
          Placebo = c(1:5, 
-                     round(distribution_beta(22, 3.21, 2)/2, digits = 1)*10)) |> 
+                     round(distribution_beta(22, 2, 3.21)/2, digits = 1)*10)) |> 
            gather(Bedingung, Nervosität)
 
 plot1 <- 
@@ -800,15 +800,16 @@ plot1 <-
                        label = c("Control","Placebo"),
                        limits = c(.75, 2.25)) +
     ylim(c(.5,5.5)) +
-    theme(panel.grid.minor = element_blank())
+    theme(panel.grid.minor = element_blank(),
+          plot.margin = margin(.2, .2, .2, .2, "cm"))
   
 
 
 data2 <- 
   tibble(Control = c(1:5, 
-                     round(distribution_beta(22, 2, 2.6)/2, digits = 1)*10),
+                     round(distribution_beta(22, 2.6, 2)/2, digits = 1)*10),
          Placebo = c(1:5, 
-                     round(distribution_beta(22, 2.6, 2)/2, digits = 1)*10)) |> 
+                     round(distribution_beta(22, 2, 2.6)/2, digits = 1)*10)) |> 
            gather(Bedingung, Nervosität)
 
 plot2 <- 
@@ -827,14 +828,15 @@ plot2 <-
                        label = c("Control","Placebo"),
                        limits = c(.75, 2.25)) +
     ylim(c(.5,5.5)) +
-    theme(panel.grid.minor = element_blank())
+    theme(panel.grid.minor = element_blank(),
+          plot.margin = margin(.2, .2, .2, .2, "cm"))
 
 
 data3 <- 
   tibble(Control = c(1:5, 
-                     round(distribution_beta(22, 2, 2.3)/2, digits = 1)*10),
+                     round(distribution_beta(22, 2.3, 2)/2, digits = 1)*10),
          Placebo = c(1:5, 
-                     round(distribution_beta(22, 2.3, 2)/2, digits = 1)*10)) |> 
+                     round(distribution_beta(22, 2, 2.3)/2, digits = 1)*10)) |> 
            gather(Bedingung, Nervosität)
 
 plot3 <- 
@@ -853,7 +855,8 @@ plot3 <-
                        label = c("Control","Placebo"),
                        limits = c(.75, 2.25)) +
     ylim(c(.5,5.5)) +
-    theme(panel.grid.minor = element_blank())
+    theme(panel.grid.minor = element_blank(),
+          plot.margin = margin(.2, .2, .2, .2, "cm"))
 
 
 plot1 + plot2 + plot3 +
@@ -865,10 +868,9 @@ plot1 + plot2 + plot3 +
 ```
 
 ::: {.incremental}
-* Cliff's $d(X,Y) := \frac{\#(x_i > y_i) - \#(x_i < y_i)}{\#X \cdot \#Y}$ 
 * Voraussetzung: Zwei mindestens ordinalverteile Variablen
 * Cliff's $d(X, Y)$ nimmt Werte zwischen -1 (maximale Unterlegenheit von X) und 1 (maximale Überlegenheit von X) an; ein Nulleffekt liegt bei $d = 0$ vor
-* Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $d=.11$, $d=.28$ und $d=.43$.
+* Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $d=.11$, $d=.28$ und $d=.43$
 :::
 
 
