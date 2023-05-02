@@ -1,0 +1,13 @@
+name: ShinyApp_Overlap
+title: ShinyApp_Overlap
+username:
+account: sammerk
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8968048
+bundleId: 7142607
+url: https://sammerk.shinyapps.io/ShinyApp_Overlap/
+when: 1682587993.20344
+lastSyncTime: 1682587993.20345
+asMultiple: FALSE
+asStatic: FALSE

@@ -31,13 +31,30 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="Gruppenmittelwertsunterschiede_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -341,12 +358,6 @@ Samuel Merk
 </div>
 
 </section>
-<section class="slide level2">
-
-
-<script src="//cdn.wordart.com/wordart.min.js" async="" defer=""></script>
-
-</section>
 <section id="inhalte-dieses-erklärvideos" class="slide level2 center smaller">
 <h2>Inhalte dieses Erklärvideos</h2>
 <div class="fragment">
@@ -359,154 +370,233 @@ Samuel Merk
 <p><span class="imp"><i class="fa-solid fa-medal" aria-label="medal"></i></span> Effektstärken für zwei nicht-normalverteilte (z.B. ordinale) Variablen (Cliff’s <span class="math inline">\(d\)</span>)</p>
 </div>
 </section>
-<section id="section" class="slide level2 center">
+<section id="section" class="slide level2 center smaller">
 <h2><!--Informationsgehalt von Effektstärken--></h2>
-<p><span class="em15 c imp"><i class="fa-solid fa-lightbulp" aria-label="lightbulp"></i> Informationsgehalt von Effektstärken</span></p>
+<p><span class="em15 c imp"><i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i> Informationsgehalt von Effektstärken</span></p>
 </section>
-<section id="informationsgehalt-von-effektstärken" class="slide level2">
+<section id="informationsgehalt-von-effektstärken" class="slide level2 center smaller">
 <h2>Informationsgehalt von Effektstärken</h2>
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong><i class="fa-solid fa-book-open" aria-label="book-open"></i> Zitate aus der Tagespresse</strong></p>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/spiegel_wortschatz.png" class="fragment" style="width:80.0%" data-fragment-index="1"></p>
+</figure>
 </div>
-<div class="callout-content">
-<p>»Deutsche Mädchen schwächeln beim Problemlösen«<br>
-»Gr« »«</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/FAZ_Migrationshintergrund.png" class="fragment" style="width:68.0%" data-fragment-index="2"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ImaginaryPill.png" class="fragment" style="width:33.0%" data-fragment-index="3"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/welt_problemlösen.png" class="fragment" style="width:60.0%" data-fragment-index="4"></p>
+</figure>
 </div>
 </div>
+<div class="fragment">
+<center>
+Artikel aus Spiegel <span class="citation" data-cites="2022a">(<a href="#/literatur" role="doc-biblioref" onclick="">2022</a>)</span>, FAZ <span class="citation" data-cites="2018a">(<a href="#/literatur" role="doc-biblioref" onclick="">2018</a>)</span>, psychologie-lernen.de <span class="citation" data-cites="psychologie-lernen.de2023">(<a href="#/literatur" role="doc-biblioref" onclick="">2023</a>)</span> und Welt <span class="citation" data-cites="2015a">(<a href="#/literatur" role="doc-biblioref" onclick="">2015</a>)</span>
+</center>
 </div>
+</section>
+<section id="informationsgehalt-von-effektstärken-1" class="slide level2 center smaller">
+<h2>Informationsgehalt von Effektstärken</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/visOverlap.svg" style="width:70.0%"></p>
+</figure>
+</div>
+<center>
+Zum Informationsgehalt von Mittelwertsdifferenzen.
+</center>
 </section>
 <section id="section-1" class="slide level2 center">
-<h2><!--Effektstärken für zwei normalverteilte Variablen--></h2>
-<p><span class="em15 c imp"><i class="fa-solid fa-ruler" aria-label="ruler"></i> Effektstärken für zwei normalverteilte Variablen</span></p>
+<h2><!--ShinyApp--></h2>
+<iframe id="Uberlappung" src="https://sammerk.shinyapps.io/ShinyApp_Overlap" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" frameborder="0">
+</iframe>
+
+<style>
+#Uberlappung {height: 670px; width: 1000px; margin-top: 0.0cm; border:0px;}
+</style>
 </section>
 <section id="section-2" class="slide level2 center">
+<h2><!--Effektstärken für zwei normalverteilte (z.B. ordinale) Variablen--></h2>
+<p><span style="color:#8cd000; font-size:1.2em;"><i class="fa-solid fa-ruler" aria-label="ruler"></i> Effektstärken für zwei normalverteilte Variablen</span></p>
+</section>
+<section id="cohens-u₁-of-non-overlap" class="slide level2 center smaller">
+<h2>Cohen’s U₁ (% of Non-Overlap)</h2>
+<div class="cell" data-fig.format="svg" data-hash="Gruppenmittelwertsunterschiede_cache/revealjs/unnamed-chunk-1_2f4b5bb1b5ff8d70e2eb9dae79b60787">
+<div class="cell-output-display">
+<p><img data-src="Gruppenmittelwertsunterschiede_files/figure-revealjs/unnamed-chunk-1-1.png" width="1248"></p>
+</div>
+</div>
+<div>
+<ul>
+<li class="fragment"><span class="math inline">\(U_1 :=\)</span> Nicht-Überlappung der Häufigkeitsverteilungen</li>
+<li class="fragment">Voraussetzung: Zwei normalverteile (daher auch intervallskalierte) Variablen</li>
+<li class="fragment"><span class="math inline">\(U_1\)</span> nimmt Werte zwischen 0 (Nulleffekt) und 1 (maximaler Effekt) an</li>
+<li class="fragment">Cohen’s Benchmarks für kleine, mittlere und große Effekte liegen bei <span class="math inline">\(U_1=.15\)</span>, <span class="math inline">\(U_1=.33\)</span> und <span class="math inline">\(U_1=.47\)</span>.</li>
+</ul>
+</div>
+</section>
+<section id="cohens-u₃-over-other-mean" class="slide level2 center smaller">
+<h2>Cohen’s U₃ (% Over Other Mean)</h2>
+<div class="cell" data-fig.format="svg" data-hash="Gruppenmittelwertsunterschiede_cache/revealjs/unnamed-chunk-2_fbfe88826b1f82ec872a17e9baaa35e2">
+<div class="cell-output-display">
+<p><img data-src="Gruppenmittelwertsunterschiede_files/figure-revealjs/unnamed-chunk-2-1.png" width="1248"></p>
+</div>
+</div>
+<div>
+<ul>
+<li class="fragment"><span class="math inline">\(U_3 :=\)</span> % über dem Mittelwert der anderen Gruppe</li>
+<li class="fragment">Voraussetzung: Zwei normalverteile (daher auch intervallskalierte) Variablen</li>
+<li class="fragment"><span class="math inline">\(U_3\)</span> nimmt Werte zwischen 0 (maximale Unterlegenheit) und 1 (maximale Überlegenheit) an; ein Nulleffekt liegt bei <span class="math inline">\(U_3 = 0.5\)</span> vor</li>
+<li class="fragment">Cohen’s Benchmarks für kleine, mittlere und große Effekte liegen bei <span class="math inline">\(U_3=.54\)</span>, <span class="math inline">\(U_3=.69\)</span> und <span class="math inline">\(U_3=.79\)</span>.</li>
+</ul>
+</div>
+</section>
+<section id="cohens-d-standardized-mean-difference" class="slide level2 center smaller">
+<h2><span style="font-size:.8em;">Cohen’s <span class="math inline">\(d\)</span> (Standardized Mean Difference)</span></h2>
+<div class="cell" data-fig.format="svg" data-hash="Gruppenmittelwertsunterschiede_cache/revealjs/unnamed-chunk-3_cf611bfd63542a8c655df2f8c49bc6f5">
+<div class="cell-output-display">
+<p><img data-src="Gruppenmittelwertsunterschiede_files/figure-revealjs/unnamed-chunk-3-1.png" width="1248"></p>
+</div>
+</div>
+<div>
+<ul>
+<li class="fragment"><span class="math inline">\(d(XY) = \frac{\bar{x}-\bar{y}}{\sqrt{\frac{s_x^2 + s_y^2}{2}}}\)</span> <a href="https://www.geogebra.org/m/tGcX62gq" data-preview-link="true">(Interaktive Visualisierung <i class="fa-solid fa-square-up-right" aria-label="square-up-right"></i>)</a></li>
+<li class="fragment">Cohen’s <span class="math inline">\(d\)</span> kann Werte zwischen <span class="math inline">\(-\infty\)</span> und <span class="math inline">\(+\infty\)</span> annehmen. Je weiter <span class="math inline">\(d\)</span> von 0 entfernt ist desto stärker ist der Effekt; <span class="math inline">\(d = 0\)</span> entspricht dem Nulleffekt</li>
+<li class="fragment">Cohen’s Benchmarks für kleine, mittlere und große Effekte liegen bei <span class="math inline">\(d=.2\)</span>, <span class="math inline">\(d=.5\)</span> und <span class="math inline">\(d=.8\)</span></li>
+</ul>
+</div>
+</section>
+<section id="visual-guessing-u₁-u₃-cohens-d" class="slide level2 center">
+<h2>Visual Guessing U₁, U₃, &amp; Cohen’s d</h2>
+<iframe id="guessingd" src="https://sammerk.shinyapps.io/Visual_Guessing_d_U3_U1" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" frameborder="0">
+</iframe>
+
+<style>
+#guessingd {height: 500px; width: 900px; margin-top: 0.0cm; border:0px;}
+</style>
+</section>
+<section id="section-3" class="slide level2 center">
 <h2><!--Effektstärken für zwei nicht-normalverteilte (z.B. ordinale) Variablen--></h2>
-<p><span class="em15 c imp"><i class="fa-solid fa-medal" aria-label="medal"></i> Effektstärken für zwei nicht-normalverteilte (z.B. ordinale) Variablen</span></p>
-<h3 class="smaller" id="einführendes-beispiel-i-unterschied-von-1.5-np">Einführendes Beispiel I: <em>Unterschied von 1.5 NP</em></h3>
-<p>. . .</p>
+<p><span style="color:#8cd000; font-size:.87em;"><i class="fa-solid fa-medal" aria-label="medal"></i> Effektstärken für zwei nicht-normalverteilte (z.B. ordinale) Variablen</span></p>
+</section>
+<section id="cliffs-d-rangbiseriale-korrelation" class="slide level2 smaller center">
+<h2>Cliff’s <span class="math inline">\(d\)</span> (Rangbiseriale Korrelation)</h2>
+<div class="columns">
+<div id="vcenter" class="column" style="width:50%;">
+<p>Die Grundidee von Cliff’s d ist jeden Punkt einer Gruppe <span class="math inline">\(x_i\)</span> mit jedem Punkt der anderen Gruppe <span class="math inline">\(y_i\)</span> zu vergleichen und zu entscheiden, ob <span class="math inline">\(\color{#8cd000}{x_i &lt; y_i}\)</span>, <span class="math inline">\(x_i = y_i\)</span> oder <span class="math inline">\(\color{#d77d00}{x_i &gt; y_i}\)</span> gilt</p>
+</div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Gruppenmittelwertsunterschiede_files/figure-revealjs/unnamed-chunk-1-1.svg" width="960"></p>
+<p><img data-src="Gruppenmittelwertsunterschiede_files/figure-revealjs/unnamed-chunk-4-1.png" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
-</div>
-<p>. . .</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="Gruppenmittelwertsunterschiede_files/figure-revealjs/unnamed-chunk-2-1.svg" width="960"></p>
-</figure>
 </div>
 </div>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 class="smaller" id="einführendes-beispiel-ii-negativer-effekt-digitalanalog-substitution">Einführendes Beispiel II: <em>Negativer Effekt digital/analog Substitution</em></h3>
+<section id="cliffs-d-rangbiseriale-korrelation-1" class="slide level2 smaller center">
+<h2>Cliff’s <span class="math inline">\(d\)</span> (Rangbiseriale Korrelation)</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="fragment">
+<p><span class="math display">\[\text{Cliff's } d = \frac{\#\text{Abwärtsvergl.} - \#\text{Aufwärtsvergl.}}{\#\text{Alle Vergl.}}\]</span></p>
+<p><span class="math display">\[= \frac{\color{#d77d00}{\#(x_i &gt; y_i)} - \color{#8cd000}{\#(x_i &lt; y_i})}{\#X \cdot \#Y}\]</span></p>
+<p><span class="math display">\[= \frac{\color{#d77d00}{11} - \color{#8cd000}{1}}{16}\]</span> <span class="math display">\[= .625\]</span></p>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Gruppenmittelwertsunterschiede_files/figure-revealjs/unnamed-chunk-5-1.png" style="width:99.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="benchmarks-cliffs-d" class="slide level2 smaller">
+<h2>Benchmarks Cliff’s d</h2>
+<div class="cell" data-fig.format="svg" data-hash="Gruppenmittelwertsunterschiede_cache/revealjs/vis_cliff_function_f6dcbdd491492d0a98e023a980a0c5fb">
+<div class="cell-output-display">
+<p><img data-src="Gruppenmittelwertsunterschiede_files/figure-revealjs/vis_cliff_function-1.png" width="1248"></p>
+</div>
+</div>
+<div>
+<ul>
+<li class="fragment">Cliff’s <span class="math inline">\(d(X,Y) := \frac{\#(x_i &gt; y_i) - \#(x_i &lt; y_i)}{\#X \cdot \#Y}\)</span></li>
+<li class="fragment">Voraussetzung: Zwei mindestens ordinalverteile Variablen</li>
+<li class="fragment">Cliff’s <span class="math inline">\(d(X, Y)\)</span> nimmt Werte zwischen -1 (maximale Unterlegenheit von X) und 1 (maximale Überlegenheit von X) an; ein Nulleffekt liegt bei <span class="math inline">\(d = 0\)</span> vor</li>
+<li class="fragment">Cohen’s Benchmarks für kleine, mittlere und große Effekte liegen bei <span class="math inline">\(d=.11\)</span>, <span class="math inline">\(d=.28\)</span> und <span class="math inline">\(d=.43\)</span>.</li>
+</ul>
+</div>
+</section>
+<section id="benchmarks-übersicht" class="slide level2 center">
+<h2>Benchmarks Übersicht</h2>
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="Gruppenmittelwertsunterschiede_files/figure-revealjs/unnamed-chunk-3-1.svg" style="width:115.0%"></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Effektstärke</th>
+<th style="text-align: right;">klein</th>
+<th style="text-align: right;">moderat</th>
+<th style="text-align: right;">groß</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">U₁</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">0.47</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U₃</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.69</td>
+<td style="text-align: right;">0.78</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cohen’s d</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.80</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cliff’s d</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.43</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
-<section class="slide level2">
+<section id="visual-guessing-cliffs-d" class="slide level2 center">
+<h2>Visual Guessing Cliff’s d</h2>
+<iframe id="guessingCliffsd" src="https://sammerk.shinyapps.io/Visual_Guessing_Cliffs_d" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" frameborder="0">
+</iframe>
 
-<h4 class="smaller" id="effektstärken-für-unterschiede-in-der-zentralen-tendenz-zweier-intervallskalierter-variablen">Effektstärken für Unterschiede in der zentralen Tendenz zweier intervallskalierter Variablen</h4>
-<div style="font-size: 0.5em">
-<h3 id="cohens-u_3">Cohen’s <span class="math inline">\(U_3\)</span></h3>
-<ul>
-<li>Cohen schlug (1988) vor die Mittelwertdifferenz zweier normalverteilter Variablen X,Y danach zu bewerten <strong>welcher Anteil der einen Variable, den Mittelwert der anderen übersteigt.</strong></li>
-<li><span class="math inline">\(U_3(XY) = \frac{\#(x_i &gt; \bar{y})}{\#X}\)</span></li>
-<li>Cohen’s <span class="math inline">\(U_3\)</span> kann Werte zwischen 0 und 1 annehmen. Je weiter <span class="math inline">\(U_3\)</span> von 0.5 entfernt ist desto stärker ist der Effekt.</li>
-<li><span class="math inline">\(U_3 = 0.5\)</span> entspricht dem Nulleffekt (kein Unterschied in der zentralen Tendenz)</li>
-<li>Cohen’s Benchmarks für kleine, mittlere und große Effekte liegen bei <span class="math inline">\(U_3=.579\)</span>, <span class="math inline">\(U_3=.691\)</span> und <span class="math inline">\(U_3=.758\)</span>.</li>
-</ul>
-<h3 id="cohens-d">Cohen’s <span class="math inline">\(d\)</span></h3>
-<ul>
-<li>Viel bekannter als <span class="math inline">\(U_3\)</span> ist die Effektstärke <span class="math inline">\(d\)</span>. Sie relativiert den Abstand der Mittelwerte von <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> an deren gemittelte (»gepoolte«) Standardabweichung.</li>
-<li><span class="math inline">\(d(XY) = \frac{\bar{x}-\bar{y}}{\sqrt{\frac{s_x^2 + s_y^2}{2}}}\)</span></li>
-<li>Cohen’s <span class="math inline">\(d\)</span> kann Werte zwischen <span class="math inline">\(-\infty\)</span> und <span class="math inline">\(+\infty\)</span> annehmen. Je weiter <span class="math inline">\(d\)</span> von 0 entfernt ist desto stärker ist der Effekt.</li>
-<li><span class="math inline">\(d = 0\)</span> entspricht dem Nulleffekt (kein Unterschied in der zentralen Tendenz)</li>
-<li>Cohen’s Benchmarks für kleine, mittlere und große Effekte liegen bei <span class="math inline">\(d=.2\)</span>, <span class="math inline">\(d=.5\)</span> und <span class="math inline">\(d=.7\)</span>.</li>
-</ul>
-</div>
+<style>
+#guessingCliffsd {height: 500px; width: 900px; margin-top: 0.0cm; border:0px;}
+</style>
 </section>
-<section class="slide level2">
-
-<h3 id="dynamische-visualisierung-cohens-d">Dynamische Visualisierung Cohen’s <span class="math inline">\(d\)</span></h3>
-<p><br></p>
-<p><a href="https://www.geogebra.org/m/tGcX62gq" data-preview-link="true">Link</a></p>
-</section>
-<section class="slide level2">
-
-<h4 class="smaller" id="inferenzstatistiken-für-unterschiede-in-der-zentralen-tendenz-zweier-intervallskalierter-variablen-t-tests-und-welch-tests">Inferenzstatistiken für Unterschiede in der zentralen Tendenz zweier intervallskalierter Variablen: »t-Tests« und »Welch-Tests«</h4>
-<div style="font-size: 0.5em">
-<ul>
-<li>p-Werte und Bayes-Faktoren für Cohen’s <span class="math inline">\(d\)</span> und <span class="math inline">\(U_3\)</span> können über einen Koeffizienten (»die t-Statistik«) berechnet werden.</li>
-<li>Dabei wird meistens die <span class="math inline">\(H_0: d = 0\)</span> bzw. <span class="math inline">\(H_0: U_3 = 0.5\)</span> getestet</li>
-<li>Unterschieden wird dabei zwischen
-<ul>
-<li>unabhängigen Stichproben (z.B. Interventions- und Kontrollgruppe) und</li>
-<li>abhängigen Stichproben (z.B. Messwiederholung oder Ehepaare).</li>
-</ul></li>
-<li>Bei der Berechnung der t-Statistik wird vorausgesetzt dass 1) beide Variablen einer Normalverteilung mit 2) gleicher Streuung folgen.</li>
-<li>Der Welch-Test verzichtet auf die Annahme gleicher Streuung.</li>
-<li>Die t- und Welch-Tests sind jedoch robust gegen eine Verletzung der Normalverteilungsannahme falls <span class="math inline">\(N &gt; 30\)</span>.</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-
-<h4 class="smaller" id="effektstärken-für-unterschiede-in-der-zentralen-tendenz-zweier-mind.-ordinaler-variablen">Effektstärken für Unterschiede in der zentralen Tendenz zweier mind. ordinaler Variablen</h4>
-</section>
-<section class="slide level2">
-
-<h4 class="smaller" id="effektstärken-für-unterschiede-in-der-zentralen-tendenz-zweier-mind.-ordinaler-variablen-1">Effektstärken für Unterschiede in der zentralen Tendenz zweier mind. ordinaler Variablen</h4>
-<div style="font-size: 0.5em">
-<ul>
-<li>Vargha &amp; Delaney’s A ist definiert als <span class="math inline">\(A(X,Y) = \frac{\#(x_i &gt; y_i) + 0.5 \cdot \#(x_i = y_i)}{\#X \cdot \#Y}\)</span> also durch die Anzahl der paarweisen Datenpunktvergleiche die zugunsten von X ausgehen plus die Hälfte derjenigen, die unentschieden ausgehen geteilt durch die Anzahl aller Vergleiche.</li>
-<li>A hat einen Wertebereich von 0 bis 1. Bei einem Nulleffekt wird <span class="math inline">\(A = 0.5\)</span>.</li>
-<li>Je weiter <span class="math inline">\(A\)</span> von 0.5 entfernt ist, desto stärker ist der Effekt.</li>
-<li>Cohen’s Benchmarks für kleine, mittlere und große Effekte liegen bei <span class="math inline">\(A=.56\)</span>, <span class="math inline">\(A=.64\)</span> und <span class="math inline">\(A=.71\)</span> bzw. <span class="math inline">\(A=.44\)</span>, <span class="math inline">\(A=.36\)</span> und <span class="math inline">\(A=.29\)</span>.</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="dynamische-visualisierung-vargha-delaneys-a">Dynamische Visualisierung Vargha &amp; Delaney’s <span class="math inline">\(A\)</span></h3>
-<p><br></p>
-<p><a href="https://www.geogebra.org/m/FUDmaUrt" data-preview-link="true">Link</a></p>
-</section>
-<section id="referenzen-damit-bib-korrekt" class="slide level2">
-<h2>-&gt;[] Referenzen, damit Bib korrekt</h2>
-<h3 id="guessing-app">Guessing App</h3>
-<p><br></p>
-<p><a href="https://apps.samuel-merk.de/guessing-d-U3-A/" data-preview-link="true">Link</a></p>
-</section>
-<section class="slide level2">
-
-<h4 class="smaller" id="inferenzstatistiken-für-unterschiede-in-der-zentralen-tendenz-zweier-ordinaler-variablen-wilcoxons-rangsummentest-und-der-mann-whitney-u-test">Inferenzstatistiken für Unterschiede in der zentralen <br> Tendenz zweier ordinaler Variablen: »Wilcoxons Rangsummentest« und der »Mann-Whitney-U-Test«</h4>
-<div style="font-size: 0.5em">
-<ul>
-<li>p-Werte und Bayes-Faktoren für Vargha und Delaney’s <span class="math inline">\(A\)</span> sind ebenfalls verfügbar.</li>
-<li>Dabei wird meistens die <span class="math inline">\(H_0: A = 0.5\)</span> getestet.</li>
-<li>Unterschieden wird dabei zwischen
-<ul>
-<li>unabhängigen Stichproben (z.B. Interventions- und Kontrollgruppe) und</li>
-<li>abhängigen Stichproben (z.B. Messwiederholung oder Ehepaare).</li>
-</ul></li>
-<li>Für erstere ist der »Mann-Whitney-U-Test« für zweitere »Wilcoxons Rangsummentest« geeignet.</li>
-<li>Beide Tests kommen ohne Annahmen bzgl. der Verteilung aus.</li>
-</ul>
-</div>
-</section>
-<section id="literatur" class="slide level2">
+<section id="literatur" class="slide level2 smaller scrollable">
 <h2>Literatur</h2>
 <style>
 div.callout {border-left-color: #8cd000 !important;
@@ -514,6 +604,20 @@ div.callout {border-left-color: #8cd000 !important;
 <p><img src="img/PHlogo.svg" class="slide-logo"></p>
 <div class="footer footer-default">
 
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list">
+<div id="ref-2022a" class="csl-entry" role="listitem">
+<span>Grundschul-Studie: Kinder, die viel digital lesen, haben einen kleineren Wortschatz</span>. (2022). <em>Der Spiegel</em>.
+</div>
+<div id="ref-2015a" class="csl-entry" role="listitem">
+<span>Pisa-Studie: Deutsche Mädchen schwächeln beim Problemlösen - WELT</span>. (2015, September). <em>DIE WELT</em>. https://www.welt.de/wirtschaft/article126429005/Deutsche-Maedchen-schwaecheln-beim-Problemloesen.html.
+</div>
+<div id="ref-2018a" class="csl-entry" role="listitem">
+<span>Pisa-Studie: Schüler mit Migrationshintergrund sind schwächer</span>. (2018). <em>FAZ.NET</em>.
+</div>
+<div id="ref-psychologie-lernen.de2023" class="csl-entry" role="listitem">
+Psychologie-lernen .de. (2023, March). Diese <span>Pille</span> hilft gegen <span>Angst</span> und bringt bessere <span>Noten</span>! (obwohl sie nicht existiert...).
+</div>
 </div>
 </section>
     </div>
@@ -526,7 +630,6 @@ div.callout {border-left-color: #8cd000 !important;
   <script src="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="Gruppenmittelwertsunterschiede_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -548,8 +651,7 @@ div.callout {border-left-color: #8cd000 !important;
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true,"theme":"whiteboard","boardmarkerWidth":3,"chalkEffect":0},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -720,7 +822,7 @@ div.callout {border-left-color: #8cd000 !important;
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,
