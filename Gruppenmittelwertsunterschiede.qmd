@@ -136,7 +136,7 @@ plot1 <-
     color="#ffffff00"
   ) +
   xlim(c(-3, 3.7)) +
-  ggtitle("Großer Effekt", bquote("Cohen's" ~U[1]~ "= % of Non-Overlap = 47%")) +
+  ggtitle("Großer Effekt", bquote("Cohen's" ~U[1]~ "= % of Non-Overlap = .47")) +
   theme_modern_rc() +
   theme(axis.title.y = element_blank(),
         axis.title.x = element_blank(),
@@ -170,7 +170,7 @@ plot2 <-
     color="#ffffff00"
   ) +
   xlim(c(-3, 3.5)) +
-  ggtitle("Moderater Effekt", bquote("Cohen's" ~U[1]~ "= % of Non-Overlap = 33%")) +
+  ggtitle("Moderater Effekt", bquote("Cohen's" ~U[1]~ "= % of Non-Overlap = .33")) +
   theme_modern_rc() +
   theme(axis.title.y = element_blank(),
         axis.title.x = element_blank(),
@@ -205,7 +205,7 @@ plot3 <-
     color="#ffffff00"
   ) +
   xlim(c(-3, 3.2)) +
-  ggtitle("Kleiner Effekt", bquote("Cohen's" ~U[1]~ "= % of Non-Overlap = 15%")) +
+  ggtitle("Kleiner Effekt", bquote("Cohen's" ~U[1]~ "= % of Non-Overlap = .15")) +
   theme_modern_rc() +
   theme(axis.title.y = element_blank(),
         axis.title.x = element_blank(),
@@ -223,7 +223,7 @@ plot1 + plot2 + plot3 +
 * $U_1 =$ Nicht-Überlappung der Häufigkeitsverteilungen
 * Voraussetzung: Zwei normalverteile (daher auch intervallskalierte) Variablen
 * $U_1$ nimmt Werte zwischen 0 (Nulleffekt) und 1 (maximaler Effekt) an
-* Cohen's [-@cohen1988] Benchmarks für kleine, mittlere und große Effekte liegen bei $U_1=.15$, $U_1=.33$ und $U_1=.47$.
+* Cohen's [-@cohen1988] Benchmarks für kleine, mittlere und große Effekte liegen bei $U_1=.15$, $U_1=.33$ und $U_1=.47$
 :::
 
 
@@ -261,7 +261,7 @@ plot1 <-
     color="#ffffff00"
   ) +
   xlim(c(-3, 3.7)) +
-  ggtitle("Großer Effekt", bquote("Cohen's" ~U[3]~ "= % Over Other Mean = 79%")) +
+  ggtitle("Großer Effekt", bquote("Cohen's" ~U[3]~ "= % Over Other Mean = .79")) +
   theme_modern_rc() +
   theme(axis.title.y = element_blank(),
         axis.title.x = element_blank(),
@@ -290,7 +290,7 @@ plot2 <-
     color="#ffffff00"
   ) +
   xlim(c(-3, 3.5)) +
-  ggtitle("Moderater Effekt", bquote("Cohen's" ~U[3]~ "= % Over Other Mean = 69%")) +
+  ggtitle("Moderater Effekt", bquote("Cohen's" ~U[3]~ "= % Over Other Mean = .69")) +
   theme_modern_rc() +
   theme(axis.title.y = element_blank(),
         axis.title.x = element_blank(),
@@ -320,7 +320,7 @@ plot3 <-
     color="#ffffff00"
   ) +
   xlim(c(-3, 3.2)) +
-  ggtitle("Kleiner Effekt", bquote("Cohen's" ~U[3]~ "= % Over Other Mean = 54%")) +
+  ggtitle("Kleiner Effekt", bquote("Cohen's" ~U[3]~ "= % Over Other Mean = .54")) +
   theme_modern_rc() +
   theme(axis.title.y = element_blank(),
         axis.title.x = element_blank(),
