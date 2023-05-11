@@ -135,7 +135,7 @@ plot1 <-
     fill = "#8cd00050",
     color="#ffffff00"
   ) +
-  xlim(c(-3, 3.7)) +
+  xlim(c(-3, 3.8)) +
   ggtitle("Großer Effekt", bquote("Cohen's" ~U[1]~ "= % of Non-Overlap = .47")) +
   theme_modern_rc() +
   theme(axis.title.y = element_blank(),
